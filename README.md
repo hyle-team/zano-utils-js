@@ -7,7 +7,7 @@ Set of helpers and tools for JS developers that working with Zano
     * [deocdeTransaction](#decodetransaction)
     * [generateAccount](#generateaccount)
     * [validateAccount](#validateaccount)
-    * [generateAccountKey](#generateaccountkeys)
+    * [generateAccountKeys](#generateaccountkeys)
     * [privateKeyToPublicKey](#privatekeytopublickey)
     * [getAccountBySecretSpendKey](#getaccountbysecretspendkey)
     * [getKeyPair](#getkeypair)
