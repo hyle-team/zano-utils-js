@@ -407,7 +407,7 @@ import type { SeedToMnemonicResult } from '@hyle-team/zano-utils-js';
 
 const randomBytes: string = getRandomBytes(64).toString('hex');
 
-const seedPhrase: SeedToMnemonicResult = mnemonicToSeed(randomBytes);
+const seedPhrase: SeedToMnemonicResult = seedToMnemonic(randomBytes);
 ```
 
 #### Returned data seedToMnemonic
