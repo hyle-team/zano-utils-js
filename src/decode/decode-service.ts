@@ -45,7 +45,7 @@ export function decodeTransaction(
 
   let addressKeys: ZarcanumAddressKeys;
 
-  if (ADDRESS_REGEX.test(addressOrPublicSpendKey)) {
+  if (ADDRESS_REGEX.test(addressOrPublicSpendKey) || INTEGRATED_ADDRESS_REGEX.test(addressOrPublicSpendKey)) {
     addressKeys = getKeysFromAddress(addressOrPublicSpendKey);
   } else if (PUBLIC_KEY_REGEX.test(addressOrPublicSpendKey)) {
     const secretViewKeyBuf: Buffer = Buffer.from(secretViewKey, 'hex');

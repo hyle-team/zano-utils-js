@@ -1,6 +1,6 @@
 {
-  "name": "@hyle-team/zano-utils-js",
-  "version": "0.0.1",
+  "name": "@zano-project/zano-utils-js",
+  "version": "0.0.2",
   "repository": "https://github.com/hyle-team/zano-utils-js",
   "author": "Zano Team",
   "license": "MIT",

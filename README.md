@@ -131,17 +131,17 @@ curl -X POST \
 ### `decodeTransaction`
 
 Decode a transaction object_in_json using the provided secret view key and either address or public spend key.
+You can prodive integrated address or master address.
 
 #### Import and usage
 
 ```ts
-import { decodeTransaction } from '@hyle-team/zano-utils-js';
-import type { DecodeTransactionResult } from '@hyle-team/zano-utils-js';
+import { decodeTransaction } from '@zano-project/zano-utils-js';
+import type { DecodeTransactionResult } from '@zano-project/zano-utils-js';
 
 decodeTransaction(objectInJson, secretViewKey, address);
-or
-decodeTransaction(objectInJson, secretViewKey,
-publicSpendKey);
+// or provide public spend key
+decodeTransaction(objectInJson, secretViewKey, publicSpendKey);
 ```
 #### Returned data decodeTransaction
 
@@ -155,8 +155,8 @@ type DecodeTransactionResult =
 ### `generateAccount`
 
 ```typescript
-import { generateAccount } from '@hyle-team/zano-utils-js';
-import type { AccountResult } from '@hyle-team/zano-utils-js';
+import { generateAccount } from '@zano-project/zano-utils-js';
+import type { AccountResult } from '@zano-project/zano-utils-js';
 
 const account: AccountResult = generateAccount();
 ```
@@ -180,7 +180,7 @@ type AccountKeys = {
 ### `validateAccount`
 
 ```ts
-import { validateAccount } from '@hyle-team/zano-utils-js';
+import { validateAccount } from '@zano-project/zano-utils-js';
 
 const validatedAccount: boolean = validateAccount(
 'ZxC15vh38qHAZbfsUXTpxoiyeLhavbBzsQQk81fEwP4jYxN4qR8SEhMfXkRBpQw6vbbSEGpK2VPVPADnL6h3ZViL29Remh4oH',
@@ -207,8 +207,8 @@ async function validateAccount(
 ### `generateAccountKeys`
 
 ```ts
-import { generateAccountKeys } from '@hyle-team/zano-utils-js';
-import type { AccountKeys } from '@hyle-team/zano-utils-js';
+import { generateAccountKeys } from '@zano-project/zano-utils-js';
+import type { AccountKeys } from '@zano-project/zano-utils-js';
 
 const accountKeys: AccountKeys = generateAccountKeys();
 ```
@@ -227,7 +227,7 @@ type AccountKeys = {
 ### `privateKeyToPublicKey`
 
 ```ts
-import { privateKeyToPublicKey } from '@hyle-team/zano-utils-js';
+import { privateKeyToPublicKey } from '@zano-project/zano-utils-js';
 
 const publicKey: string = privateKeyToPublicKey('88609e3bc954fe8b5f1a5f0a7e7e44528835b62890de49000033b28898888d01');
 ```
@@ -236,8 +236,8 @@ const publicKey: string = privateKeyToPublicKey('88609e3bc954fe8b5f1a5f0a7e7e445
 ### `getAccountBySecretSpendKey`
 
 ```ts
-import { getAccountBySecretSpendKey } from '@hyle-team/zano-utils-js';
-import type { AccountKeys } from '@hyle-team/zano-utils-js';
+import { getAccountBySecretSpendKey } from '@zano-project/zano-utils-js';
+import type { AccountKeys } from '@zano-project/zano-utils-js';
 
 const accountKeys: AccountKeys = getAccountBySecretSpendKey('88609e3bc954fe8b5f1a5f0a7e7e44528835b62890de49000033b28898888d01');
 ```
@@ -257,8 +257,8 @@ type AccountKeys = {
 ### `getKeyPair`
 
 ```ts
-import { getKeyPair } from '@hyle-team/zano-utils-js';
-import type { KeyPair } from '@hyle-team/zano-utils-js';
+import { getKeyPair } from '@zano-project/zano-utils-js';
+import type { KeyPair } from '@zano-project/zano-utils-js';
 
 const keypair: KeyPair = getKeyPair();
 ```
@@ -279,7 +279,7 @@ type KeyPair = {
 The function accepts either the main master address or the integrated address as a parameter.
 
 ```ts
-import { getIntegratedAddress } from '@hyle-team/zano-utils-js';
+import { getIntegratedAddress } from '@zano-project/zano-utils-js';
 
 const integratedAddress: string = getIntegratedAddress('ZxD5aoLDPTdcaRx4uCpyW4XiLfEXejepAVz8cSY2fwHNEiJNu6NmpBBDLGTJzCsUvn3acCVDVDPMV8yQXdPooAp338Se7AxeH');
 ```
@@ -288,7 +288,7 @@ const integratedAddress: string = getIntegratedAddress('ZxD5aoLDPTdcaRx4uCpyW4Xi
 ### `createIntegratedAddress`
 
 ```ts
-import { createIntegratedAddress } from '@hyle-team/zano-utils-js';
+import { createIntegratedAddress } from '@zano-project/zano-utils-js';
 
 const integratedAddress: string = createIntegratedAddress('ZxD5aoLDPTdcaRx4uCpyW4XiLfEXejepAVz8cSY2fwHNEiJNu6NmpBBDLGTJzCsUvn3acCVDVDPMV8yQXdPooAp338Se7AxeH', '49c925855b863a25');
 ```
@@ -302,7 +302,7 @@ params:
 2. viewPublicKey: string
 
 ```ts
-import { getMasterAddress } from '@hyle-team/zano-utils-js';
+import { getMasterAddress } from '@zano-project/zano-utils-js';
 
 const integratedAddress: string = getMasterAddress('9f5e1fa93630d4b281b18bb67a3db79e9622fc703cc3ad4a453a82e0a36d51fa', 'a3f208c8f9ba49bab28eed62b35b0f6be0a297bcd85c2faa1eb1820527bcf7e3');
 ```
@@ -315,8 +315,8 @@ params:
 1. integratedAddress: string, 
 
 ```ts
-import { splitIntegratedAddress } from '@hyle-team/zano-utils-js';
-import type { SplitedIntegratedAddress } from '@hyle-team/zano-utils-js';
+import { splitIntegratedAddress } from '@zano-project/zano-utils-js';
+import type { SplitedIntegratedAddress } from '@zano-project/zano-utils-js';
 
 const integratedAddress: SplitedIntegratedAddress = splitIntegratedAddress('iZ2kFmwxRHoaRxm1ni8HnfUTkYuKbni8s4CE2Z4GgFfH99BJ6cnbAtJTgUnZjPj9CTCTKy1qqM9wPCTp92uBC7e47JPoHxGL5UU2D1tpQMg4');
 ```
@@ -338,8 +338,8 @@ params:
 1. address: string, 
 
 ```ts
-import { getKeysFromAddress } from '@hyle-team/zano-utils-js';
-import type { ZarcanumAddressKeys } from '@hyle-team/zano-utils-js';
+import { getKeysFromAddress } from '@zano-project/zano-utils-js';
+import type { ZarcanumAddressKeys } from '@zano-project/zano-utils-js';
 
 const integratedAddress: ZarcanumAddressKeys = getKeysFromAddress('iZ2kFmwxRHoaRxm1ni8HnfUTkYuKbni8s4CE2Z4GgFfH99BJ6cnbAtJTgUnZjPj9CTCTKy1qqM9wPCTp92uBC7e47JPoHxGL5UU2D1tpQMg4');
 ```
@@ -358,7 +358,7 @@ type ZarcanumAddressKeys = {
 Descr: generate payment id for creating integrated address
 
 ```ts
-import { generatePaymentId } from '@hyle-team/zano-utils-js';
+import { generatePaymentId } from '@zano-project/zano-utils-js';
 
 const paymentId: string = generatePaymentId();
 ```
@@ -376,8 +376,8 @@ const paymentId: string = generatePaymentId();
  @returns The secret spend key as a hex string, or `false` if parsing failed.
 
 ```ts
-import { mnemonicToSeed } from '@hyle-team/zano-utils-js';
-import type { MnemonicToSeedResult } from '@hyle-team/zano-utils-js';
+import { mnemonicToSeed } from '@zano-project/zano-utils-js';
+import type { MnemonicToSeedResult } from '@zano-project/zano-utils-js';
 
 const secretSpendKey: MnemonicToSeedResult = mnemonicToSeed('bridge passion scale vast speak mud murder own birthday flight always hair especially tickle crowd shatter tickle deserve hopefully bomb join plan darling aunt beneath give');
 ```
@@ -402,8 +402,8 @@ type MnemonicToSeedResult = string | false;
 - **No audit flag support**: The library does not yet support the audit flag feature.
 
 ```ts
-import { seedToMnemonic } from '@hyle-team/zano-utils-js';
-import type { SeedToMnemonicResult } from '@hyle-team/zano-utils-js';
+import { seedToMnemonic } from '@zano-project/zano-utils-js';
+import type { SeedToMnemonicResult } from '@zano-project/zano-utils-js';
 
 const randomBytes: string = getRandomBytes(64).toString('hex');
 
