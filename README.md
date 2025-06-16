@@ -4,7 +4,7 @@ Set of helpers and tools for JS developers that working with Zano
 * [Zano Utils JS](#zano-utils-js)
   * [Blockchain Description](#blockchain-description)
   * [Functions](#functions)
-    * [deocdeTransaction](#decodetransaction)
+    * [decodeTransaction](#decodetransaction)
     * [generateAccount](#generateaccount)
     * [validateAccount](#validateaccount)
     * [generateAccountKeys](#generateaccountkeys)
