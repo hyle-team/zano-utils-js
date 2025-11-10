@@ -5,6 +5,14 @@ Set of helpers and tools for JS developers that working with Zano
   * [Blockchain Description](#blockchain-description)
   * [Functions](#functions)
     * [decodeTransaction](#decodetransaction)
+    * [txUtils](#txutils)
+      * [getConcealingPoint](#getconcealingpoint)
+      * [decodeAmount](#decodeamount)
+      * [getStealthAddress](#getstealthaddress)
+      * [getNativeBlindedAsset](#getnativeblindedasset)
+      * [generateKeyImage](#generatekeyimage)
+      * [decryptPaymentId](#decryptpaymentid)
+      * [parseObjectInJson](#parseobjectinjson)
     * [generateAccount](#generateaccount)
     * [validateAccount](#validateaccount)
     * [generateAccountKeys](#generateaccountkeys)
@@ -152,6 +160,88 @@ type DecodeTransactionResult =
 ```
 ---
 
+### `txUtils`
+
+Namespace that provides low-level cryptographic and transaction-related helper functions for Zano transactions.  
+These utilities allow working with transaction outputs, stealth addresses, key images, and encrypted fields.
+
+Import utils:
+
+```ts
+import { txUtils } from '@zano-project/zano-utils-js';
+```
+
+#### `getConcealingPoint`
+
+Calculates a concealing point for a transaction output.
+
+**Signature:**
+```ts
+getConcealingPoint(viewSecretKey: string, txPubKey: string, pubViewKey: string, outputIndex: number): string
+```
+
+---
+
+#### `decodeAmount`
+
+Decrypts an encrypted (masked) output amount using the recipient’s view key.
+
+**Signature:**
+```ts
+decodeAmount(viewSecretKey: string, txPubKey: string, encryptedAmount: string | number, outputIndex: number): bigint
+```
+
+---
+
+#### `getStealthAddress`
+
+Generates a one-time stealth address (ephemeral public key) using the Dual-key Stealth Address Protocol.
+
+**Signature:**
+```ts
+getStealthAddress(txPubKey: string, secViewKey: string, pubSpendKey: string, outIndex: number): string
+```
+---
+
+#### `getNativeBlindedAsset`
+
+Computes a blinded version of the native asset ID for output verification.
+
+**Signature:**
+```ts
+getNativeBlindedAsset(viewSecretKey: string, txPubKey: string, outputIndex: number): string
+```
+---
+
+#### `generateKeyImage`
+
+Generates a unique key image for a transaction output — used to prevent double-spending.
+
+**Signature:**
+```ts
+generateKeyImage(txPubKey: string, secViewKey: string, pubSpendKey: string, outIndex: number, spendSecretKey: string): string
+```
+---
+
+#### `decryptPaymentId`
+
+Decrypts an encrypted payment ID using the recipient’s view key and transaction public key.
+
+**Signature:**
+```ts
+decryptPaymentId(encryptedPaymentId: string, txPubKey: string, secViewKey: string): string
+```
+---
+
+#### `parseObjectInJson`
+
+Decodes a base64-encoded transaction JSON string into a `TransactionObject` or `TransactionObjectV3`.
+
+**Signature:**
+```ts
+parseObjectInJson(objectInJson: string): TransactionObject | TransactionObjectV3 | null
+```
+---
 ### `generateAccount`
 
 ```typescript

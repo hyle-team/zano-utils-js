@@ -32,3 +32,8 @@ export { mnemonicToSeed } from './mnemonic';
 export type { MnemonicToSeedResult } from './mnemonic';
 export { seedToMnemonic } from './mnemonic';
 export type { SeedToMnemonicResult } from './mnemonic';
+
+import type { TransactionUtils } from './transaction';
+export type { TransactionUtils };
+import { txUtils } from './transaction';
+export { txUtils };
